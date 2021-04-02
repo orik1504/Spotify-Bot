@@ -15,7 +15,7 @@ class Artist():
 
     def num_of_albums(self):
         """ returns the number of the albums of the artist and names of the albums """
-        pass
+        return [album["name"] for album in sp.artist_albums(self.uri).get("items")]
 
     def top_5_albums(self):
         """ gets list of the 5 top albums of the artist, returns the names, 
