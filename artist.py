@@ -7,6 +7,18 @@ Artist class will include:
 * monthly listeners
  """
 
+import spotipy
+from spotipy.oauth2 import SpotifyClientCredentials
+from client_id import Client
+
+client = Client()
+
+SPOTIPY_CLIENT_ID = client.get_client_id()
+SPOTIPY_CLIENT_SECRET = client.get_client_secret()
+
+sp = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials(
+    SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET))
+
 
 class Artist():
 
