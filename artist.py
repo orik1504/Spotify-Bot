@@ -7,15 +7,33 @@ Artist class will include:
 * monthly listeners
  """
 
+import spotipy
+from spotipy.oauth2 import SpotifyClientCredentials
+from client_id import Client
+
+client = Client()
+
+SPOTIPY_CLIENT_ID = client.get_client_id()
+SPOTIPY_CLIENT_SECRET = client.get_client_secret()
+
+sp = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials(
+    SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET))
+
 
 class Artist():
 
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.name = name
+        self.uri = self.__get_uri()
+
+    def __get_uri(self):
+        """ Define the URI of the given artist """
+        return sp.search(q=self.name, type="artist").get(
+            "artists").get("items")[0].get("id")
 
     def num_of_albums(self):
         """ returns the number of the albums of the artist and names of the albums """
-        pass
+        return [album["name"] for album in sp.artist_albums(self.uri).get("items")]
 
     def top_5_albums(self):
         """ gets list of the 5 top albums of the artist, returns the names, 
