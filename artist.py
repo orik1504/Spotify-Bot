@@ -12,6 +12,12 @@ class Artist():
 
     def __init__(self, name: str):
         self.name = name
+        self.uri = self.__get_uri()
+
+    def __get_uri(self):
+        """ Define the URI of the given artist """
+        return sp.search(q=self.name, type="artist").get(
+            "artists").get("items")[0].get("id")
 
     def num_of_albums(self):
         """ returns the number of the albums of the artist and names of the albums """
