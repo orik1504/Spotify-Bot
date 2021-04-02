@@ -10,7 +10,7 @@ Artist class will include:
 
 class Artist():
 
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.name = name
 
     def num_of_albums(self):
