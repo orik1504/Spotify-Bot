@@ -9,6 +9,18 @@ Song class will include :
 * when the song got out
  """
 
+import tekore as tk
+from client_id import Client
+
+client = Client()
+
+client_id = client.get_client_id()
+client_secret = client.get_client_secret()
+
+app_token = tk.request_client_token(client_id, client_secret)
+
+spotify = tk.Spotify(app_token)
+
 
 class Song():
 
