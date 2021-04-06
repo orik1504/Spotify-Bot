@@ -57,5 +57,9 @@ class Song():
         pass
 
     def publish_time(self):
+    def preview_url(self):
+        """ return a list of previews for all the songs that similar to the searched song """
+        return [item.preview_url for item in self.id.items]
+
         """ returns the publish date of the song """
         pass
