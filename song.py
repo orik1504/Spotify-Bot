@@ -41,8 +41,8 @@ class Song():
         pass
 
     def cover(self):
-        """ returns the cover of the song, a picture """
-        pass
+        """ returns a list of URLs of album covers that contains the searched song (similar items also - not a specific track) """
+        return [item.album.images[0].url for item in self.id.items]
 
     def artist(self):
         """ returns an artist instance (can get a name, more albums...) """
