@@ -45,8 +45,8 @@ class Song():
         return [item.album.images[0].url for item in self.id.items]
 
     def artist(self):
-        """ returns an artist instance (can get a name, more albums...) """
-        pass
+        """ return a list of artists for the song that was searched (similar items also - not a specific track)  """
+        return [item.artists[0].name for item in self.id.items]
 
     def album(self):
         """ returns the album that the song is published with """
