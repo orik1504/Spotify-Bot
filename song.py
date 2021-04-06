@@ -26,6 +26,11 @@ class Song():
 
     def __init__(self, title):
         self.title = title
+        self.id = self.__get_id()
+
+    def __get_id(self):
+        """ Get the FullTrack class that contains everything """
+        return spotify.search(self.title, types=('track',))[0]
 
     def length(self):
         """ return the len of the song, by minutes and seconds """
