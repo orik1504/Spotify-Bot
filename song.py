@@ -49,8 +49,8 @@ class Song():
         return [item.artists[0].name for item in self.id.items]
 
     def album(self):
-        """ returns the album that the song is published with """
-        pass
+        """ returns a list of names of albums that contain the song and similar song also (similar items also - not a specific song) """
+        return [item.album.name for item in self.id.items]
 
     def link(self):
         """ returns the link of the spotify song """
