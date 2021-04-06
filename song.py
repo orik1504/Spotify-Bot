@@ -32,6 +32,10 @@ class Song():
         """ Get the FullTrack class that contains everything """
         return spotify.search(self.title, types=('track',))[0]
 
+    def names(self):
+        """ return the list of names that the client found from the search """
+        return [item.name for item in self.id.items]
+
     def length(self):
         """ return the len of the song, by minutes and seconds """
         pass
