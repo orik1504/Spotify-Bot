@@ -33,6 +33,8 @@ class Artist():
 
     def num_of_albums(self):
         """ returns the number of the albums of the artist and names of the albums """
+        # TODO: need to add number of albums
+        # TODO: need to deal with duplicates
         return [album["name"] for album in sp.artist_albums(self.uri).get("items")]
 
     def top_5_albums(self):
