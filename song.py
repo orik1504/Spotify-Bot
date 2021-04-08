@@ -52,9 +52,9 @@ class Song():
         """ returns a list of names of albums that contain the song and similar song also (similar items also - not a specific song) """
         return [item.album.name for item in self.id.items]
 
-    def link(self):
-        """ returns the link of the spotify song """
-        pass
+    def uri(self):
+        """ returns a list of URIs that was found by searching the name of the song """
+        return [item.uri for item in self.id.items]
 
     def preview_url(self):
         """ return a list of previews for all the songs that similar to the searched song """
