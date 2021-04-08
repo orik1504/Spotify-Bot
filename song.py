@@ -63,3 +63,7 @@ class Song():
     def release_date(self):
         """ returns the publish date of the song """
         pass
+
+    def popularity(self):
+        """ returns a list of int popularity number for every song that was found by searching the track name """
+        return [item.popularity for item in self.id.items]
